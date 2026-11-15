@@ -1,28 +1,29 @@
 {
     // "layer": "top", // Waybar at top layer
-    // "position": "bottom", // Waybar position (top|bottom|left|right)
-    // "height": 30, // Waybar height (to be removed for auto height)
+    // "position": "top", // Waybar position (top|bottom|left|right)
+    // "height": 45, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     "spacing": 5, // Gaps between modules (4px)
     "modules-left": [
         "keyboard-state",
         "niri/language",
+        "custom/power",
+        "power-profiles-daemon",
+        "idle_inhibitor",
         "niri/workspaces",
         "mpd",
-        "pulseaudio",
     ],
     "modules-center": [
         "clock",
     ],
     "modules-right": [
+        "pulseaudio",
         "backlight",
         "cpu",
         "memory",
         "battery",
         "network",
-        "idle_inhibitor",
-        "power-profiles-daemon",
-        "custom/power",
+        "keyboard-state",
     ],
 
     "niri/workspaces": {
@@ -38,13 +39,13 @@
         "capslock": true,
         "format": "{icon}",
         "format-icons": {
-            "locked": " CAPS ",
+            "locked": " CAPS  ",
             "unlocked": ""
         }
     },
     "mpd": {
-        "min-length": 15,
-        "title-len": 20,
+        "min-length": 0,
+        "title-len": 99,
         "format": "{title} {stateIcon}{repeatIcon}{randomIcon}{consumeIcon}{singleIcon}",
         "format-disconnected": "mpd not connected",
         "format-stopped": "  ",
@@ -184,15 +185,15 @@
         "format-bluetooth": "{volume}% {icon}",
         "format-bluetooth-muted": "󰝟 {icon}",
         "format-source": "{volume}% ",
-        "format-source-muted": " ",
+        "format-source-muted": "",
         "format-icons": {
-            "default": [" ", " ", " "],
-            "headphone": " ",
-            "hands-free": "󱡏 ",
-            "headset": "󰋎 ",
-            "phone": " ",
-            "portable": " ",
-            "car": " ",
+            "default": ["", "", ""],
+            "headphone": "",
+            "hands-free": "󱡏",
+            "headset": "󰋎",
+            "phone": "",
+            "portable": "",
+            "car": "",
         },
         "on-click-right": "pavucontrol",
         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
@@ -200,7 +201,7 @@
         "reverse-scrolling": true,
     },
     "custom/power": {
-        "format" : "⏻ ",
+        "format" : "⏻",
 		"tooltip": false,
 		"menu": "on-click",
 		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
