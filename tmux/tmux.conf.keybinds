@@ -8,36 +8,17 @@ bind-key C-a send-prefix
 
 # Split on current dir
 bind % split-window -h -c "#{pane_current_path}"
-bind \" split-window -v -c "#{pane_current_path}"
-
+bind '"' split-window -v -c "#{pane_current_path}"
 bind -n M-n run-shell "~/.config/tmux/scripts/auto_split.sh"
+
 bind -n M-N neww
 
 # Fullscreen pane
 bind -n M-z resize-pane -Z ""
  
-bind e run-shell "~/.config/tmux/scripts/new_win_split.sh"
-
-bind -n M-m run-shell \
-         "~/.config/tmux/scripts/open_window.sh -c music rmpc "
-bind -n M-M run-shell \
-         "~/.config/tmux/scripts/open_window.sh -c system_monitor btm "
-
-# Popups
-bind -n M-t display-popup \
-         -S fg=green -b rounded -h 80% -w 90 \
-         -E "nt $EDITOR TODO.txt"
-
 bind C-f display-popup -d "#{pane_current_path}" \
          -S fg=green -b rounded -h 75% -w 75% \
          -E "fish"
-bind C-n display-popup -d "#{pane_current_path}" \
-         -S fg=green -b rounded -h 90% -w 90% \
-         -E "fish -c nmtui"
-bind C-b display-popup -d "#{pane_current_path}" \
-         -b none -h 80% -w 80% \
-         -E "fish -c bluetui"
-bind C-t display-popup -B -E "ttyper -w 35"
 
 # Kill pane without confirmation prompt
 bind-key X kill-pane
