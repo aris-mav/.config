@@ -2,15 +2,6 @@ require('vis')
 
 vis.events.subscribe(vis.events.INIT, function()
     require('keybinds')
-
-    for name, style in pairs({
-        CURSOR_PRIMARY = 'reverse',
-        LINENUMBER = 'fore:8,dim',
-        STATUS = '',
-        STATUS_FOCUSED = '',
-    }) do
-        vis.ui:style_define(vis.ui.style_ids[name], style)
-    end
 end)
 
 vis.events.subscribe(vis.events.WIN_OPEN, function(win)
