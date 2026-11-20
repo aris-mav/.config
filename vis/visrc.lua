@@ -1,18 +1,30 @@
 require('vis')
 
 vis.events.subscribe(vis.events.INIT, function()
-    vis:command('set theme gruv_mono')
     require('keybinds')
+
+    for name, style in pairs({
+        CURSOR_PRIMARY = 'reverse',
+        LINENUMBER = 'fore:8,dim',
+        STATUS = '',
+        STATUS_FOCUSED = '',
+    }) do
+        vis.ui:style_define(vis.ui.style_ids[name], style)
+    end
 end)
 
 vis.events.subscribe(vis.events.WIN_OPEN, function(win)
-    vis:command('set showeof off')
-    vis:command('set autoindent on')
-    vis:command('set relativenumbers')
-    vis:command('set ignorecase')
-    vis:command('set tabwidth 4')
-    vis:command('set expandtab')
-    vis:command('set shell fish')
+    for _, cmd in ipairs({
+        'showeof off',
+        'autoindent on',
+        'relativenumbers',
+        'ignorecase',
+        'tabwidth 4',
+        'expandtab',
+        'shell fish',
+    }) do
+        vis:command('set ' .. cmd)
+    end
 
     local opts = require('ftopts')[win.syntax]
     if opts then
