@@ -33,7 +33,9 @@ vis:operator_new("gf", function(file, range, _)
     p:close()
 
     if #paths == 0 or #paths > 4 then
-        vis:info("Found " .. #paths .. " file results for '" .. name .. "'")
+        vis:info(
+            #paths .. " files matching '" .. name .. "' in '" .. parent .. "'"
+        )
     else
         for _, path in ipairs(paths) do
             vis:command("open " .. path)
