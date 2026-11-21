@@ -1,8 +1,8 @@
-require('vis')
+require("vis")
 
 vis.events.subscribe(vis.events.INIT, function()
-    require('keybinds')
+    require("keybinds")
 end)
 
-require('options')
-require('fmt')
+require("options")
+require("fmt")
