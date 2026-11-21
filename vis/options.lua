@@ -23,3 +23,13 @@ vis.events.subscribe(vis.events.WIN_OPEN, function(win)
         vis:command('set ' .. o)
     end
 end)
+
+vis.events.subscribe(vis.events.WIN_HIGHLIGHT, function()
+    local cursor
+    if vis.mode == vis.modes.INSERT then
+        cursor = "underlined,keep_attribute"
+    else
+        cursor = "fore:0,back:15,keep_attribute"
+    end
+    vis.ui:style_define(vis.ui.style_ids.CURSOR_PRIMARY, cursor)
+end)
