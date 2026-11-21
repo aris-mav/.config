@@ -22,6 +22,11 @@ vis.events.subscribe(vis.events.WIN_OPEN, function(win)
     for _, o in ipairs(ftopts[win.syntax] or {}) do
         vis:command('set ' .. o)
     end
+    vis:command(
+        'langmap ' ..
+        'αβψδεφγηιξκλμνοπρστθωςχυζΑΒΨΔΕΦΓΗΙΞΚΛΜΝΟΠΡΣΤΘΩΣΧΥΖ ' ..
+        'abcdefghijklmnoprstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ '
+    )
 end)
 
 vis.events.subscribe(vis.events.WIN_HIGHLIGHT, function()
