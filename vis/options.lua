@@ -29,12 +29,11 @@ vis.events.subscribe(vis.events.WIN_OPEN, function(win)
     )
 end)
 
-vis.events.subscribe(vis.events.WIN_HIGHLIGHT, function()
-    local cursor
+local function cursor_redraw()
+    local cursor = "fore:0,back:15,keep_attribute"
     if vis.mode == vis.modes.INSERT then
-        cursor = "underlined,keep_attribute"
-    else
-        cursor = "fore:0,back:15,keep_attribute"
+        cursor = cursor .. ",reverse,underlined"
     end
     vis.ui:style_define(vis.ui.style_ids.CURSOR_PRIMARY, cursor)
-end)
+end
+vis.events.subscribe(vis.events.WIN_HIGHLIGHT, cursor_redraw)
