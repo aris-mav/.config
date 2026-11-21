@@ -1,16 +1,28 @@
-local n = vis.modes.VISUAL
-local v = vis.modes.NORMAL
+local n = vis.modes.NORMAL
+local v = vis.modes.VISUAL
 
 vis:map(n, ' y', '"+y')
 vis:map(v, ' y', '"+y')
 vis:map(n, ' p', '"+p')
 vis:map(v, ' p', '"+p')
 
-vis:command('map normal <M-h> <C-w>h')
-vis:command('map normal <M-j> <C-w>j')
-vis:command('map normal <M-k> <C-w>k')
-vis:command('map normal <M-l> <C-w>l')
+for _, k in ipairs{'h', 'j', 'k', 'l'} do
+    vis:command(('map normal <M-%s> <C-w>%s'):format(k, k))
+end
 
 vis:map(n, '<F5>', function()
     vis:command('e!')
 end, 'Reload file from disk')
+
+
+vis:map(v, "gf", function()
+    local sel = vis.win.selection
+    local name = vis.win.file:content(sel.range)
+    local parent = vis.win.file.path:gsub("/[^/]*$", "")
+    local p = io.popen(
+        "find '" .. parent .. "' -type f -path '*" .. name .. "*' "..
+        "-not -path '*/.git/*'"
+    )
+    for path in p:lines() do vis:command("open " .. path) end
+    p:close()
+end, "Open files matching selection")
