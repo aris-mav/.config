@@ -25,23 +25,32 @@ vis:operator_new("gf", function(file, range, _)
             .. parent
             .. "' -type f -path '*"
             .. name
-            .. "*' "
-            .. "-not -path '*/.git/*'"
+            .. "*' -not -path '*/.git/*'"
     )
-    local paths = {}
-    for path in p:lines() do
-        paths[#paths + 1] = path
-    end
-    p:close()
-
-    if #paths == 0 or #paths > 4 then
-        vis:info(
-            #paths .. " files matching '" .. name .. "' in '" .. parent .. "'"
-        )
-    else
-        for _, path in ipairs(paths) do
-            vis:command("open " .. path)
+    if p then
+        local paths = {}
+        for path in p:lines() do
+            paths[#paths + 1] = path
         end
+        p:close()
+
+        if #paths == 0 or #paths > 4 then
+            vis:info(
+                #paths
+                    .. " files matching '"
+                    .. name
+                    .. "' in '"
+                    .. parent
+                    .. "'"
+            )
+        else
+            for _, path in ipairs(paths) do
+                vis:command("open " .. path)
+            end
+        end
+    else
+        vis:info("io.popen(find) failed")
     end
+
     return range.start -- new cursor location
 end, "Open files matching selection")
