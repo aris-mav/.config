@@ -34,9 +34,9 @@ let &t_SI = "\e[6 q" " SI = Start Insert (Vertical bar)
 let &t_SR = "\e[4 q" " SR = Start Replace (Underline)
 let &t_EI = "\e[2 q" " EI = End Insert/Replace (Block)
 augroup CursorReset
-  autocmd!
-  autocmd VimEnter * silent !echo -ne "\e[2 q"
-  autocmd VimLeave * silent !echo -ne "\e[0 q"
+    autocmd!
+    autocmd VimEnter * silent !echo -ne "\e[2 q"
+    autocmd VimLeave * silent !echo -ne "\e[0 q"
 augroup END
 
 function! s:DetectBackground() abort
@@ -75,8 +75,8 @@ augroup TabSettings
 augroup END
 
 augroup SpellCheckTextFiles
-  autocmd!
-  autocmd FileType markdown,tex,text,typst
+    autocmd!
+    autocmd FileType markdown,tex,text,typst
         \ setlocal spell spelllang=en_gb,el textwidth=50 colorcolumn=+1
 augroup END
 
@@ -94,6 +94,6 @@ function! s:PandocFormat()
 endfunction
 
 augroup PandocFormat
-  autocmd!
-  autocmd BufWritePre *.md call s:PandocFormat()
+    autocmd!
+    autocmd BufWritePre *.md call s:PandocFormat()
 augroup END
