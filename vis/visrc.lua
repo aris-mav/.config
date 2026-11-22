@@ -5,4 +5,5 @@ vis.events.subscribe(vis.events.INIT, function()
 end)
 
 require("options")
+require("slime")
 require("fmt")

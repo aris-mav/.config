@@ -32,7 +32,7 @@ end)
 local function cursor_redraw()
     local cursor = "fore:0,back:15,keep_attribute"
     if vis.mode == vis.modes.INSERT then
-        cursor = cursor .. ",reverse,underlined"
+        cursor = cursor .. ",reverse"
     end
     vis.ui:style_define(vis.ui.style_ids.CURSOR_PRIMARY, cursor)
 end
