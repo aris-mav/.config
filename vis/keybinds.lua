@@ -6,6 +6,8 @@ vis:map(v, " y", '"+y')
 vis:map(n, " p", '"+p')
 vis:map(v, " p", '"+p')
 
+vis:map(n, "U", "<C-r>", "Redo")
+
 for _, k in ipairs({ "h", "j", "k", "l" }) do
     vis:command(("map normal <M-%s> <C-w>%s"):format(k, k))
 end
