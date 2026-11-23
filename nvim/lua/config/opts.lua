@@ -4,6 +4,9 @@ if vim.fn.has('nvim-0.12') == 1 then
     require('vim._core.ui2').enable()
 end
 
+-- Floating window border
+vim.o.winborder = "rounded" -- "rounded", "single", "double", "solid"
+
 -- Enable cursorline and highlight only the line number, not the entire line
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = "number"

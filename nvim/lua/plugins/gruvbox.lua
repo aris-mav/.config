@@ -4,7 +4,8 @@ return {
     config = function()
         require("gruvbox").setup({
             transparent_mode = true,
-            terminal_colors = true, -- add neovim terminal colors
+            terminal_colors = true,
+            contrast = "medium",
             undercurl = true,
             underline = true,
             bold = true,
@@ -16,22 +17,25 @@ return {
                 folds = true,
             },
             strikethrough = true,
+            inverse = true, -- invert background for search, diffs, statuslines and errors
             invert_selection = false,
             invert_signs = false,
             invert_tabline = false,
             invert_intend_guides = false,
-            inverse = true, -- invert background for search, diffs, statuslines and errors
-            -- contrast = "hard", -- can be "hard", "soft" or empty string
-            palette_overrides = {},
             dim_inactive = false,
             overrides = {
-                SignColumn          = { bg = "none" },
-                StatusLine          = { bg = "none" },
-                StatusLineNC        = { bg = "none" },
-                DiagnosticSignError = { fg = "#fb4934", bg = "none" },
-                DiagnosticSignWarn  = { fg = "#fabd2f", bg = "none" },
-                DiagnosticSignInfo  = { fg = "#83a598", bg = "none" },
-                DiagnosticSignHint  = { fg = "#8ec07c", bg = "none" },
+                SignColumn                  = { bg = "none" },
+                StatusLine                  = { bg = "none" },
+                StatusLineNC                = { bg = "none" },
+                DiagnosticSignError         = { link = "GruvboxRed" },
+                DiagnosticSignWarn          = { link = "GruvboxYellow" },
+                DiagnosticSignInfo          = { link = "GruvboxBlue" },
+                DiagnosticSignHint          = { link = "GruvboxAqua" },
+                Pmenu                       = { link = "Normal" },
+                FloatBorder                 = { link = "GruvboxBg2" },
+                BlinkCmpMenuBorder          = { link = "FloatBorder" },
+                BlinkCmpDocBorder           = { link = "FloatBorder" },
+                BlinkCmpSignatureHelpBorder = { link = "FloatBorder" },
             }
         })
         vim.cmd.colorscheme("gruvbox")
