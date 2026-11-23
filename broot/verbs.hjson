@@ -88,8 +88,4 @@ verbs: [
 	{ key: "alt-j"   , internal: ":root_down" }
 	{ key: "alt-k"   , internal: ":root_up" }
 	{ key: "alt-l"   , internal: ":panel_right" }
-
-	{ key: "Tab"     , cmd: ":toggle_stage;:next_match" }
-	{ key: "BackTab" , cmd: ":toggle_stage;:previous_match" }
-
 ]
