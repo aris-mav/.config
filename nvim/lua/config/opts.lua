@@ -7,11 +7,6 @@ end
 -- Floating window border
 vim.o.winborder = "rounded" -- "rounded", "single", "double", "solid"
 
--- Enable cursorline and highlight only the line number, not the entire line
-vim.opt.cursorline = true
-vim.opt.cursorlineopt = "number"
-vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "Orange" })
-
 -- Cursor shapes
 vim.opt.guicursor = "n-v:block,i-ci-ve:ver25,r-cr-o:hor20,c:ver25"
 
