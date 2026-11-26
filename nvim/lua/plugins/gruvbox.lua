@@ -36,6 +36,9 @@ return {
                 BlinkCmpMenuBorder          = { link = "FloatBorder" },
                 BlinkCmpDocBorder           = { link = "FloatBorder" },
                 BlinkCmpSignatureHelpBorder = { link = "FloatBorder" },
+                WarningMsg                  = { link = "GruvboxRed" },
+                ErrorMsg                    = { link = "GruvboxRedBold" },
+                StderrMsg                   = { link = "GruvboxRedBold" },
             }
         })
         vim.cmd.colorscheme("gruvbox")
