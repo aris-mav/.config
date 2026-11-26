@@ -11,6 +11,7 @@ return {
                 untracked    = { text = '┆' },
             }
             vim.opt.signcolumn = "yes"
+            vim.opt.statuscolumn = "%=%l%s"
             require('gitsigns').setup {
                 signs                        = s,
                 signs_staged                 = s,
